@@ -11,23 +11,29 @@ holds the installers only; there is no source code here.
 | System | File |
 | --- | --- |
 | Windows 10 / 11, 64-bit | `LuciaiStudio_<version>_x64-setup.exe` (recommended) or `LuciaiStudio_<version>_x64_en-US.msi` |
+| macOS 11 or later, Apple silicon and Intel | `LuciaiStudio_<version>_universal.dmg` (since 2.6.0) |
 | Linux, 64-bit | `LuciaiStudio_<version>_amd64.AppImage` (any distribution), `LuciaiStudio_<version>_amd64.deb` (Ubuntu, Debian), `LuciaiStudio-<version>-1.x86_64.rpm` (Fedora, openSUSE) |
-| macOS | not yet |
 
 ## Check a download
 
 Every release has a `SHA256SUMS` file with the checksum of each installer.
 
-- Windows (PowerShell): `Get-FileHash .\LuciaiStudio_2.4.0_x64-setup.exe -Algorithm SHA256`
+- Windows (PowerShell): `Get-FileHash .\LuciaiStudio_2.6.0_x64-setup.exe -Algorithm SHA256`
+- macOS (Terminal): `shasum -a 256 LuciaiStudio_2.6.0_universal.dmg`
 - Linux: `sha256sum -c SHA256SUMS --ignore-missing`
 
 The value must be the one in `SHA256SUMS`.
 
 ## The first start
 
-The installers are not code-signed yet. On Windows, SmartScreen may say "Windows protected your PC":
-choose **More info → Run anyway**. On Linux, make the AppImage executable first
-(`chmod +x LuciaiStudio_*.AppImage`).
+The installers are not code-signed yet.
+
+- **Windows**: SmartScreen may say "Windows protected your PC" — choose **More info → Run anyway**.
+- **macOS**: open the disk image and drag Luciai Studio to Applications. The app is not notarized by
+  Apple: the first time, right-click (or Control-click) it in Applications and choose **Open**, then
+  **Open** again — on macOS 15, System Settings → Privacy & Security → **Open Anyway**. After that it
+  opens like any app.
+- **Linux**: make the AppImage executable first (`chmod +x LuciaiStudio_*.AppImage`).
 
 ## Your license
 
